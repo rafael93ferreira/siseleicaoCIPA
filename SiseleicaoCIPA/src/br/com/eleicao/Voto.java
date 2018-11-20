@@ -1,6 +1,8 @@
 package br.com.eleicao;
 
 public class Voto {
+	
+	private Candidato candidato;
 
 	public void registrarVoto()
 	{
@@ -12,4 +14,13 @@ public class Voto {
 		
 	}
 	
+	public void setcandidato(Candidato candidato)
+	{
+		this.candidato = candidato;
+	}
+	
+	public Candidato getCandidato()
+	{
+		return this.candidato;
+	}
 }

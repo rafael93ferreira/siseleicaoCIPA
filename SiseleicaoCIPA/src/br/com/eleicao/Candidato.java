@@ -1,19 +1,12 @@
 package br.com.eleicao;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class Candidato implements Logica{
 	
 	private String nome, foto;
 	private int numero;
 	
-	public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		System.out.println("Executando a Lógica...");
-		System.out.println("Retornando o nome da página JSP...");
-		return "urnavotacao.jsp";
-	}
-	
+		
 	
 	public String getCandidatoById(int id)
 	{
