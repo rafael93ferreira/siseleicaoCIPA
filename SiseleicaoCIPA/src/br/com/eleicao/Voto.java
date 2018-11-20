@@ -1,4 +1,4 @@
-package br.com.urnaeletronica;
+package br.com.eleicao;
 
 public class Voto {
 
