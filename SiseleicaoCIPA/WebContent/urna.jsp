@@ -25,20 +25,48 @@ and open the template in the editor.
         
         <table border="" align="center" >
             <tr>
-                <td align="center"> <input type="number" value="Número Candidato" > </td>
-                <td align="center"> <input type="image" value="" > 
-                    <img width="80" height="100" src="Foto/Bolsonaro.png"> </td>
+                <td align="center"> <input type="number" id="idCandidato" name="txtNumCandidato" value="Número Candidato" > </td>
+                <td align="center"> 
+                	<img width="80" height="100"  src="">
+                </td>
             </tr>
             <tr>
-                <td align="center"><input class="botao" type="button" value="Confirmar">
+                <td align="center">
                 
+                <input class="botao" type="button" value="Confirmar">
                 <input class="botao" type="button" value="Corrigir"> 
-               
-               <input class="botao" type="button" value="Branco"> </td>
+               	<input class="botao" type="button" value="Branco"> </td>
                 
-                <td align="center"> <input type="name" value="Candidato" > </td>
+                <td align="center">
+                	<input type="name" id="idNomeCandidato">
+                </td>
             </tr>
-           </table>
+        </table>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+        	
+        $('#idCandidato').blur(function(){
+        	
+        	$.ajax({
+        		
+	        	url: 'ServletControl',
+				method: 'POST',
+	        	data: {
+					txtNumCandidato : $('#idCandidato').val(),
+				},
+				success: function(response) {
+		        	var response = response;
+					alert(response);
+					$('idNomeCandidato').val(response);
+				}
+			})
+        	
+        });
+        
+        
+	        
+        </script>
         
     </body>
          
