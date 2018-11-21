@@ -1,7 +1,7 @@
 package br.com.eleicao;
 
 
-public class Candidato implements Logica{
+public class Candidato {
 	
 	private String nome, foto;
 	private int numero;

@@ -27,13 +27,13 @@ and open the template in the editor.
             <tr>
                 <td align="center"> <input type="number" id="idCandidato" name="txtNumCandidato" value="Número Candidato" > </td>
                 <td align="center"> 
-                	<img width="80" height="100"  src="">
+                	<img width="80" height="100" id="idFotoCandidato">
                 </td>
             </tr>
             <tr>
                 <td align="center">
                 
-                <input class="botao" type="button" value="Confirmar">
+                <input class="botao" type="button" value="Confirmar" id="btnConfirmar">
                 <input class="botao" type="button" value="Corrigir"> 
                	<input class="botao" type="button" value="Branco"> </td>
                 
@@ -56,9 +56,29 @@ and open the template in the editor.
 					txtNumCandidato : $('#idCandidato').val(),
 				},
 				success: function(response) {
-		        	var response = response;
+		        	var response = response.split("|");
+		        	console.log(response);
+					$('#idNomeCandidato').val(response[0]);
+					$('#idFotoCandidato').attr('src', "Foto/" + response[1]);
+				}
+			})
+        	
+        });
+        
+		$('#btnConfirmar').click(function(){
+        	
+        	$.ajax({
+        		
+	        	url: 'ServletControl',
+				method: 'POST',
+	        	data: {
+					txtVoto : $('#idCandidato').val(),
+				},
+				success: function(response) {
+					$('#idCandidato').val()
+					$('#idNomeCandidato').val("");
+					$('#idFotoCandidato').attr('src', "");
 					alert(response);
-					$('idNomeCandidato').val(response);
 				}
 			})
         	
